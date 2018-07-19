@@ -14,25 +14,26 @@ class SaveSettings{
     }
 
     fun saveSettings(){
-        val editor=sharedRef!!.edit()
-        editor.putBoolean("isFirstLaunch",true)
-        editor.commit()
+//        val editor=sharedRef!!.edit()
+//        editor.putBoolean(isFirstLaunch,true)
+//        editor.commit()
         loadSettings()
+        UserController.loadUsername()
     }
 
     fun loadSettings(){
-        isFirstLaunch= sharedRef!!.getBoolean("isFirstLaunch",false)
+        isFirstLaunchBool= sharedRef!!.getBoolean("isFirstLaunchBool",false)
 
-        if (isFirstLaunch==false){
+        if (isFirstLaunchBool==false){
             val intent = Intent(context, TutorialActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            isFirstLaunch = true
+            isFirstLaunchBool = true
             context!!.startActivity(intent)
         }
     }
 
 
     companion object {
-         var isFirstLaunch : Boolean ?=null
+         var isFirstLaunchBool : Boolean ?=null
     }
 }
