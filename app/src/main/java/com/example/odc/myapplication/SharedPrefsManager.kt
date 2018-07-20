@@ -5,13 +5,12 @@ import android.content.SharedPreferences
 
 class SharedPrefsManager {
 
-    class SharedPrefsManager {
         companion object Factory {
             lateinit var sharedPreferences : SharedPreferences
             fun  create(context: Context) {
                 sharedPreferences = context.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
             }
         }
-    }
+
 
 }
